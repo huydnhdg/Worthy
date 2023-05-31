@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Worthy.Models.CategoryPost>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Danh sách phân loại tin tức</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Mô tả</th>
+                    <th>Ngày tạo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.Category_Name</td>
+                        <td>@item.Short_Decription</td>
+                        <td>
+                            @item.Create_date
+                        </td>
+                        <td>
+                            <a class="btn" href="/admin/categorypost/edit/@item.Category_Post_ID"><i class="fa fa-edit fa-fw"></i></a>
+                            <a class="btn" href="/admin/categorypost/delete/@item.Category_Post_ID"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+

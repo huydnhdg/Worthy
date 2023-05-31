@@ -1,0 +1,104 @@
+/*****************************
+  Pricing Table
+*****************************/
+
+.pricing-tab {
+  text-align: center;
+  span {
+    vertical-align: middle;
+  }
+  .monthly-tab {
+    font-weight: 700;
+    font-size: 18px;
+    color: $gray-8;
+  }
+  .yearly-tab {
+    font-weight: 700;
+    font-size: 18px;
+    color: $gray-8;
+  }
+}
+
+.pricing {
+  padding: 0px 0px 40px 0px;
+  text-align: center;
+  box-shadow: $boxshadow-lg;
+  border-radius: $border-radius-0;
+  overflow: hidden;
+  position: relative;
+  .pricing-plan{
+    padding: 40px 30px;
+    .pricing-title {
+      margin-bottom: 10px;
+    }
+  }
+  .pricing-price {
+    display: inline-block;
+    position: relative;
+    color: $gray-3;
+    font-weight: 600;
+    margin-top: 30px;
+    sup {
+      position: absolute;
+      top: 15px;
+      left: -20px;
+      font-size: 24px;
+      color: $gray-8;
+    }
+    strong {
+      color: $gray-8;
+      font-size: 50px;
+      line-height: 50px;
+      padding-right: 0px;
+      font-weight: 500;
+    }
+  }
+  .yearly-price {
+    display: none;
+  }
+  .change-pricing-price {
+    .yearly-price {
+      display: block;
+    }
+    .monthly-price {
+      display: none;
+    }
+  }
+  .pricing-list {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    li {
+      padding: 6px 0;
+      color: $gray-3;
+      font-weight: 500;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+.pricing.active {
+  .pricing-plan{
+    span{
+      position: absolute;
+      top: 25px;
+      right: -35px;
+      transform: rotate(50deg);
+      z-index: 99;
+      width: 130px;
+      height: 30px;
+      line-height: 30px;
+        &:before{
+        content: "";
+        position: absolute;
+        background: $white;
+        height: 30px;
+        width: 160px;
+        top: 0px;
+        left: 0px;
+        z-index: -9;
+      }
+    }
+  }
+}

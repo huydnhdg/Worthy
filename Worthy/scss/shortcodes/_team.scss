@@ -1,0 +1,107 @@
+/*****************************
+	Team
+*****************************/
+
+.team {
+	text-align: center;
+	position: relative;
+	.team-img {
+		img {
+			border-radius: $border-radius-0;
+		}
+	}
+	&:hover {
+		.team-img {
+			z-index: 9;
+			position: relative;
+		}
+		.team-info {
+			z-index: 9;
+			position: relative;
+			ul {
+				opacity: 1;
+				top: -15px;
+			}
+		}
+		.team-bg {
+			opacity: 1;
+			z-index: -99;
+		}
+	}
+	.team-info {
+		padding: 25px 0px 0px;
+		.team-name {
+			color: $gray-8;
+			font-size: 14px;
+			font-weight: 600;
+			&:hover {
+				color: $primary;
+			}
+		}
+		p {
+			font-size: 11px;
+			margin-bottom: 20px;
+		}
+		ul {
+			display: flex;
+			justify-content: center;
+			margin-bottom: 0;
+			position: absolute;
+			bottom: 50px;
+			left: 0;
+			right: 0;
+			opacity: 0;
+			transition: all 0.5s ease-in-out;
+			li {
+				a {
+					display: block;
+				margin: 0 5px;
+		    color: $white;
+		    background: $primary;
+		    line-height: 32px;
+		    width: 30px;
+		    height: 30px;
+		    border-radius: 50%;
+		    text-align: center;
+					&:hover {
+						color: $gray-9;
+						background: $white;
+					}
+				}
+			}
+		}
+	}
+	.team-bg {
+		background: $white;
+		position: absolute;
+		left: 0;
+		top: 20px;
+		width: 100%;
+		height: 100%;
+		z-index: 5;
+		opacity: 0;
+		transition: all 0.5s ease-in-out;
+		border-radius: $border-radius-0;
+		box-shadow: $boxshadow-lg;
+	}
+}
+
+
+/*****************************
+	responsive
+*****************************/
+
+@media (max-width: 575px) {
+
+	.team .team-img img {
+	    width: 100%;
+	}
+
+	.team .team-bg {
+    left: 0%;
+    top: 4%;
+    width: 100%;
+    height: 100%;
+  }
+
+}

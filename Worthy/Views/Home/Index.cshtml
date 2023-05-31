@@ -1,0 +1,185 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+    var apiUrl = System.Configuration.ConfigurationManager.AppSettings["DOMAIN"];
+
+}
+<!--=================================
+    banner -->
+<section class="banner">
+    <div class="swiper-container">
+        <div class="swiper-wrapper h-800 h-sm-500">
+            <div class="swiper-slide align-items-center d-flex responsive-overlap-md bg-overlay-black-10" style="background-image:url(images/banner2.jpg); background-size: cover; background-position: center center;">
+                <div class="swipeinner container">
+                    <div class="row">
+                        <div class="col-md-9 col-sm-11">
+                            <h2 data-swiper-animation="fadeInDown" data-duration="1.5s" data-delay="0.40s" style="color:white;">TCL Android Smart TV Top 1 toàn cầu</h2>
+
+                            <a class="btn btn-primary text-white" data-swiper-animation="bounceIn" data-duration="1s" data-delay="0.70s" href="https://www.tcl.com/vn/vi/support">Liên hệ với chúng tôi<i class="fa fa-angle-right pl-3"></i></a>
+                        </div>
+                        <div class="col-md-3 col-sm-12 d-none d-md-block">
+                            <a class="icon-btn icon-btn-lg video-btn btn-animation popup-youtube" href="https://www.youtube.com/watch?v=9XxHhqjlJ5M"><i class="fas fa-play fa-1x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="swiper-slide align-items-center d-flex responsive-overlap-md bg-overlay-black-40" style="background-image:url(images/slider/02.jpg); background-size: cover; background-position: center center;">
+                    <div class="swipeinner container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-9 col-md-11 text-center">
+                                <h1 data-swiper-animation="fadeInDown" data-duration="1.5s" data-delay="0.40s"> If you can dream it, you can do it</h1>
+                                <h6 data-swiper-animation="fadeInUp" data-duration="1.5s" data-delay="0.50s">Some people will tell you there are four while others may tell you there are eight.</h6>
+                                <a class="btn btn-white" data-swiper-animation="bounceIn" data-duration="1.5s" data-delay="0.75s" href="#">Discover More<i class="fa fa-angle-right pl-3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+        @*<div class="swiper-button-prev text-white"><i class="fa fa-arrow-left fa-2x"></i></div>
+            <div class="swiper-button-next text-white"><i class="fa fa-arrow-right fa-2x"></i></div>*@
+    </div>
+</section>
+<section class="space-ptb">
+    <div class="container">
+        <div class="row justify-content-lg-around position-relative">
+            <div class="col-lg-6 col-md-7 pr-lg-5 mt-5 mt-md-0">
+                <div class="p-4 p-md-5 bg-white shadow">
+                    <h3>Vui lòng nhập đầy đủ thông tin</h3>
+                    @using (Html.BeginForm("IndexConfirm", "Customers", FormMethod.Post, new { id = "formmethod" }))
+                    {
+                        <div class="row">
+                            <div class="form-group mb-3 col-lg-12">
+                                <input type="text" class="form-control" id="name" name="name" onblur="checkName(this)" placeholder="Họ và tên" required>
+                                <label style="color: #D32027; display: none; font-style: italic;" id="name_error"></label>
+                                <label style="color: green; display: none; font-style: italic;" id="name_normal"></label>
+                            </div>
+
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="number" class="form-control" id="phone" name="phone" onblur="checkPhone(this)" placeholder="Số điện thoại" required>
+                            <label style="color: #D32027; display: none; font-style: italic;" id="phone_error"></label>
+                            <label style="color: green; display: none; font-style: italic;" id="phone_normal"></label>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="label">Hình ảnh hóa đơn</label>
+                            <input type="file" multiple id="Image1" name="ImageOrder" class="form-control" />
+
+
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="label">Hình ảnh sản phẩm</label>
+                            <input type="file" multiple id="Image2" name="ImageProduct" class="form-control" />
+
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <input type="text" class="form-control" id="model" name="model" onblur="checkCode(this)" placeholder="Model - Size" required>
+                            <label style="color: #D32027; display: none; font-style: italic;" id="model_error"></label>
+                            <label style="color: green; display: none; font-style: italic;" id="model_normal"></label>
+                        </div>
+                        <div class="form-group mb-0">
+                            <button type="submit" class="btn btn-danger" id="btnsubmit">Send Message<i class="fa fa-angle-right pl-3"></i></button>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-5 mt-4 mt-md-0">
+                <div class="conatct-map mt-4 mt-lg-0">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15657.692410088814!2d106.6950261!3d11.1562761!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174c9b0c56cc137%3A0xdc2cf6676e9459d9!2zQ8O0bmcgdHkgVE5ISCDEkGnhu4duIHThu60gVGjDtG5nIG1pbmggVENMIChWaeG7h3QgTmFtKQ!5e0!3m2!1sen!2s!4v1679374296626!5m2!1sen!2s" width="600" height="630"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="errorModalLabel">Lỗi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Vui lòng điền đúng thông tin của bạn</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+   
+
+    $(document).ready(function () {
+        $("#btnsubmit").click(function (e) {
+            //Serialize the form datas.
+            var valdata = $("#formmethod").serialize();
+            //to get alert popup
+
+            $.ajax({
+                url: "/Customers/Index",
+                type: "POST",
+                dataType: 'json',
+                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                data: valdata
+            });
+        });
+    });
+
+</script>
+<script>
+    function checkPhone(phone) {
+        var phone_string = phone.value;
+        var id = phone.id;
+        if (phone_string.length == 0) {
+            $('#' + id + '_normal').hide();
+            $('#' + id + '_error').show();
+            $('#' + id + '_error').html("Vui lòng nhập số điện thoại!");
+          
+        } else {
+            if (phone_string.length < 10 || phone_string.length > 11) {
+                $('#' + id + '_normal').hide();
+                $('#' + id + '_error').show();
+                $('#' + id + '_error').html("Vui lòng nhập đúng định dạng số điện thoại");
+              
+            } else {
+                if (phone_string.startsWith("0") && phone_string.length > 10) {
+                    $('#' + id + '_normal').hide();
+                    $('#' + id + '_error').show();
+                    $('#' + id + '_error').html("Vui lòng nhập đúng định dạng số điện thoại");
+                 
+                } else {
+                    if (id == "phone1") {
+                        //getInfoByPhone(phone_string);
+                    }
+
+                    $('#' + id + '_error').hide();
+                    $('#' + id + '_error').html("");
+                    $('#' + id + '_error').hide();
+                }
+            }
+        }
+    }
+    function checkName(name) {
+        var name_string = name.value;
+        var id = name.id;
+        if (name_string.length == 0) {
+            $('#' + id + '_normal').hide();
+            $('#' + id + '_error').show();
+            $('#' + id + '_error').html("Vui lòng nhập tên của bạn!");
+        }
+    }
+    function checkCode(model) {
+        var model_string = model.value;
+        var id = model.id;
+        if (model_string.length == 0) {
+            $('#' + id + '_normal').hide();
+            $('#' + id + '_error').show();
+            $('#' + id + '_error').html("Vui lòng nhập model của sản phẩm!");
+        }
+    }
+</script>

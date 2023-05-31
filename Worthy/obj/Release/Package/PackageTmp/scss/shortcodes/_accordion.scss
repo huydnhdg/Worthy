@@ -1,0 +1,190 @@
+/*****************************
+  Shortcodes
+*****************************/
+
+/*****************************
+  Accordion
+*****************************/
+
+.accordion {
+	.card {
+		border: none;
+    border-radius: 0px;
+		&:last-child {
+			.card-header {
+				margin-bottom: 0;
+			}
+		}
+	}
+	.card-body {
+		padding: 35px 45px 45px 35px;
+	}
+	.card-header {
+		background: none;
+		border-bottom: none;
+		padding: 0;
+	}
+	>.card {
+		.card-header {
+			margin-bottom: 10px;
+		}
+	}
+	.accordion-icon.card-header {
+		button {
+			display: flex;
+			background: $primary;
+			border: 2px solid $primary !important;
+			font-size: 16px;
+			color: $white;
+			padding: 25px 20px 25px 20px;
+			width: 100%;
+			text-align: left;
+			border: none;
+			font-weight: normal;
+			position: relative;
+			border-radius: $border-radius-0;
+			font-weight: 500;
+		}
+		.btn {
+			&:after {
+				content: "\f13a";
+				margin-left: auto;
+				transform: rotate(0deg);
+				font-family: "Font Awesome 5 Free";
+				font-weight: bold;
+			}
+		}
+		button.collapsed {
+			border:2px solid $gray-2 !important;
+			background: none;
+			color: $gray-3;
+			&:after {
+				transform: rotate(0deg);
+			}
+		}
+	}
+}
+
+.accordion .btn:not(:disabled):not(.disabled):active:focus{
+  color: $gray-9;
+}
+
+.sidebar {
+  .widget {
+      margin-top: 35px;
+      background: $gray-1;
+      padding: 25px;
+      &:first-child{
+        margin-top: 0;
+      }
+      .widget-title {
+            padding-bottom: 10px;
+            border-bottom: 1px solid $border-color;
+            margin-bottom: 20px;
+        }
+      .search-form{
+        position: relative;
+        label{
+          display: block;
+          margin-bottom: 0;
+          span.screen-reader-text {
+              display: none;
+          }
+          .search-field {
+            background-color: $white;
+            height: 50px;
+            padding: 6px 15px;
+            border: 1px solid $border-color;
+            width: 100%;
+            display: block;
+            outline: 0;
+            transition: 0.5s;
+          }
+        }
+        button {
+            position: absolute;
+            right: 0;
+            outline: 0;
+            bottom: 0;
+            height: 50px;
+            width: 50px;
+            border: none;
+            color: $white;
+            background: $primary;
+            transition: 0.5s;
+        }
+      }
+    }
+
+    .widget_categories{
+          li {
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            &:last-child{
+              margin-bottom: 0;
+            }
+            a{
+              display: inline-block;
+              color: $gray-8;
+              i{
+                font-size: 13px;
+              }
+              &:hover{
+                color: $primary;
+              }
+            }
+          }
+        }
+
+      .tags{
+         li {
+            display: inline-block;
+            border: 1px solid $border-color;
+            padding: 0 12px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            &:hover{
+              border-color: $primary;
+              background: $primary;
+              a{
+                color: $white;
+              }
+            }
+            a{
+              line-height: 32px;
+              color: $gray-3;
+            }
+          }
+        }
+  }
+
+
+/*****************************
+	responsive
+*****************************/
+
+@media (max-width: 767px) {
+	.accordion .accordion-icon.card-header button {
+		padding: 22px 20px 22px 52px;
+	}
+
+	.accordion .card-body {
+		padding: 25px 25px 35px 52px;
+	}
+
+}
+
+@media (max-width: 575px) {
+	.accordion .accordion-icon.card-header button {
+		font-size: 16px;
+		padding: 20px;
+		line-height: 22px;
+	}
+
+	.accordion .card-body {
+		padding: 20px;
+	}
+
+}

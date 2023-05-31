@@ -1,0 +1,52 @@
+﻿@model Worthy.Areas.Admin.Data.HomeModel
+@{
+    ViewBag.Title = "Home Page";
+
+}
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">TCL - The Creative Life</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">TCL - The Creative Life</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Info boxes -->
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table table-hover table-bordered table-success" >
+                    <thead style="background-color:chocolate">
+                        <tr>
+                            <th>#</th>
+                            <th>Tổng cộng</th>
+                        </tr>
+                    </thead>
+
+                    <tr>
+                        <td>Khách hàng</td>
+                        <td>@Model.Customer</td>
+                    </tr>
+                    <tr>
+                        <td>Mã TV</td>
+                        <td>@Model.Code</td>
+                    </tr>
+                </table>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+    </div><!--/. container-fluid -->
+</section>

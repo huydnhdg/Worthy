@@ -1,0 +1,24 @@
+/*****************************
+	Tabs
+*****************************/
+.nav-tabs.nav-tabs-01{
+	border: none;
+		.nav-link{
+			color: $white;
+			font-weight: 500;
+			border-radius: $border-radius-0;
+			border:none;
+			background: $gray-9;
+			margin-right: 10px;
+			padding: 12px 28px;
+			margin-bottom: 10px;
+		}
+		.nav-link.active{
+			color: $white;
+			background:$primary; 
+		}
+		.nav-link:hover{
+			color: $white;
+			background:$primary; 
+		}
+}

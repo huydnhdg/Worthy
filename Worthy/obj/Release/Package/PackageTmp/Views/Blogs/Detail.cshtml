@@ -1,0 +1,183 @@
+﻿@model Worthy.Models.Post
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<Worthy.Models.Post> listpost = ViewBag.listOld;
+
+}
+<section class="header-inner header-inner-menu bg-overlay-black-50" style="background-image: url('images/header-inner/04.jpg');">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="header-inner-title text-center">
+                    <h1>@Html.DisplayFor(model => model.Title)</h1>
+                    <ol class="breadcrumb d-flex justify-content-center ml-auto">
+                        <li class="breadcrumb-item"><a class="text-dark" href="/"><i class="fas fa-home mr-1"></i>Trang chur</a></li>
+                        <li class="breadcrumb-item active text-dark"><span>Bài viết</span></li>
+                        <li class="breadcrumb-item active text-primary"><span></span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="space-ptb">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 mt-5 mt-md-0">
+                <div class="blog-detail">
+                    <div class="blog-post mb-4 mb-md-5">
+                        <div class="blog-post-image">
+                            <img class="img-fluid" src="@Html.DisplayFor(model=>model.Thumbnail)" alt="">
+                        </div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-info">
+                                <div class="blog-post-author">
+                                    <a href="#" class="btn btn-light-square text-white">@Html.DisplayFor(model => model.CategoryPost.Category_Name)</a>
+                                </div>
+                                <div class="blog-post-date">
+                                    <a href="#">@Html.DisplayFor(model => model.Create_date)</a>
+                                </div>
+                            </div>
+                            <div class="blog-post-details">
+                                <h5 class="blog-post-title">
+                                    @Html.DisplayFor(model => model.Title)
+                                </h5>
+                                <div class="blog-post-details">
+                                    <p class="mb-4">@Html.Raw(Model.Content)</p>
+                                </div>
+                                <hr />
+                                <div class="d-sm-flex justify-content-between">
+                                    <div class="social d-flex align-items-center">
+                                        <p class="text-primary mb-0 pr-2">Tags: @Html.DisplayFor(model => model.Tag)</p>
+
+                                    </div>
+                                    <div class="social d-flex align-items-center">
+                                        <p class="text-primary mb-0 pr-2">Share this post:</p>
+                                        <a href="#"><i class="fab fa-facebook-f pr-3 text-light"></i></a>
+                                        <a href="#"><i class="fab fa-twitter pr-3 text-light"></i></a>
+                                        <a href="#"><i class="fab fa-instagram pr-3 text-light"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin text-light"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12 mt-5 mt-lg-0">
+                <div class="blog-sidebar">
+                    <div class="widget mb-5">
+                        <h5 class="mb-4">Opening hours</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="d-flex align-items-center mb-2">
+                                <i class="far fa-clock text-primary mr-2"></i><span class="text-dark mr-auto">Monday</span>
+                                <label class="mb-0">08:00 - 17:30</label>
+                            </li>
+                            <li class="d-flex align-items-center mb-2">
+                                <i class="far fa-clock text-primary mr-2"></i><span class="text-dark mr-auto">Tuesday</span>
+                                <label class="mb-0">08:00 - 17:30</label>
+                            </li>
+                            <li class="d-flex align-items-center mb-2">
+                                <i class="far fa-clock text-primary mr-2"></i><span class="text-dark mr-auto">Wednesday</span>
+                                <label class="mb-0">08:00 - 17:30</label>
+                            </li>
+                            <li class="d-flex align-items-center mb-2">
+                                <i class="far fa-clock text-primary mr-2"></i><span class="text-dark mr-auto">Thursday</span>
+                                <label class="mb-0">08:00 - 17:30</label>
+                            </li>
+                            <li class="d-flex align-items-center mb-2">
+                                <i class="far fa-clock text-primary mr-2"></i><span class="text-dark mr-auto">Friday</span>
+                                <label class="mb-0">08:00 - 17:30</label>
+                            </li>
+                            <li class="d-flex align-items-center mb-2">
+                                <i class="far fa-clock text-primary mr-2"></i><span class="text-dark mr-auto">Saturday</span>
+                                <label class="mb-0">Closed</label>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <i class="far fa-clock text-primary mr-2"></i><span class="text-dark mr-auto">Sunday</span>
+                                <label class="mb-0">Closed</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <h5 class="mb-4">Recent post </h5>
+                        <div class="row">
+                            @foreach (var item in listpost)
+                            {
+                                <div class="col-12 d-flex mb-3">
+                                    <div class="recent-post-img avatar avatar-lg mr-3">
+                                        <img class="img-fluid" src="@item.Thumbnail" alt="">
+                                    </div>
+                                    <div class="recent-post-info">
+                                        <small class="d-block">@item.Create_date</small>
+                                        <a class="text-dark" href="/tin-tuc/@item.Alt"><span>@item.Title</span></a>
+                                    </div>
+                                </div>
+
+                            }
+
+                        </div>
+                    </div>
+                    <div class="widget mt-5">
+                        <h5 class="mb-4">Liên hệ với chúng tôi</h5>
+                        <div class="row">
+                            <div class="col-12 d-flex mb-3">
+                                <div class="text-primary mr-3">
+                                    <i class="fas fa-2x fa-map-signs"></i>
+                                </div>
+                                <div class="recent-post-info">
+                                    <span>
+                                        Địa chỉ : <br />
+                                        Trụ sở chính: 91 Trung Kính - Trung Hòa - Cầu Giấy - Hà Nội
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex mb-3">
+                                <div class="text-primary mr-3">
+                                    <i class="far fa-2x fa-envelope"></i>
+                                </div>
+                                <div class="recent-post-info">
+                                    <span>xuanhung@bluesea.vn<br> Mon-Fri 8:30am-17:30pm</span>
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex">
+                                <div class="text-primary mr-3">
+                                    <i class="fas fa-2x fa-headphones-alt"></i>
+                                </div>
+                                <div class="recent-post-info">
+                                    <span>SĐT: 0945152826<br> 24/7 online support</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget mt-5">
+                        <h5 class="mb-4">Follow on</h5>
+                        <ul class="list-unstyled d-flex mb-0 social-icon">
+                            <li class="mr-4"><a href="https://www.facebook.com/BlueseaMedia/"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="mr-4"><a href="https://www.youtube.com/watch?v=JAb9ZWZ6CUQ&t=110s"><i class="fab fa-youtube"></i></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+<section class="bg-dark">
+
+    <div class="row">
+        <div class="col-12">
+            <div class="bg-dark text-center py-5 px-3">
+                <h2 class="text-white">Bạn đã sẵn sàng cho một doanh nghiệp tốt hơn và nhiều hơn nữa?</h2>
+                <h6 class="text-white mb-4">Bắt đầu với mục tiêu của bạn trong tâm trí và sau đó làm việc để phát triển kế hoạch.</h6>
+                <a href="/lien-he" class="btn btn-primary-square btn-square mx-0 mx-md-3 text-white mt-2">Let’s Get Started<i class="fa fa-angle-right pl-3"></i></a>
+            </div>
+        </div>
+    </div>
+</section>

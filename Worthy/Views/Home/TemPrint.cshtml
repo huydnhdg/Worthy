@@ -1,0 +1,111 @@
+﻿@model Worthy.Models.Post
+@{
+    ViewBag.Title = "TemPrint";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="header-inner header-inner-menu bg-overlay-black-50" style="background-image: url('images/header-inner/04.jpg');">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="header-inner-title text-center">
+                    <h1>@Html.DisplayFor(model => model.Title)</h1>
+                    <ol class="breadcrumb d-flex justify-content-center ml-auto">
+                        <li class="breadcrumb-item"><a class="text-dark" href="/"><i class="fas fa-home mr-1"></i>Trang chur</a></li>
+                        <li class="breadcrumb-item active text-dark"><span>Bài viết</span></li>
+                        <li class="breadcrumb-item active text-primary"><span></span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="space-ptb">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 mt-5 mt-md-0">
+                <div class="blog-detail">
+                    <div class="blog-post mb-4 mb-md-5">
+                        <div class="blog-post-image">
+                            <img class="img-fluid" src="@Html.DisplayFor(model=>model.Thumbnail)" alt="">
+                        </div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-info">
+                                <div class="blog-post-author">
+                                    <a href="#" class="btn btn-light-square text-white">@Html.DisplayFor(model => model.CategoryPost.Category_Name)</a>
+                                </div>
+                                <div class="blog-post-date">
+                                    <a href="#">@Html.DisplayFor(model => model.Create_date)</a>
+                                </div>
+                            </div>
+                            <div class="blog-post-details">
+                                <h5 class="blog-post-title">
+                                    @Html.DisplayFor(model => model.Title)
+                                </h5>
+                                @Html.DisplayFor(model => model.Description)
+                                <div class="blog-post-details">
+                                    <p class="mb-4">@Html.Raw(Model.Content)</p>
+                                </div>
+                                <hr />
+                                <div class="d-sm-flex justify-content-between">
+                                    <div class="social d-flex align-items-center">
+                                        <p class="text-primary mb-0 pr-2">Tags: @Html.DisplayFor(model => model.Tag)</p>
+
+                                    </div>
+                                    <div class="social d-flex align-items-center">
+                                        <p class="text-primary mb-0 pr-2">Share this post:</p>
+                                        <a href="#"><i class="fab fa-facebook-f pr-3 text-light"></i></a>
+                                        <a href="#"><i class="fab fa-twitter pr-3 text-light"></i></a>
+                                        <a href="#"><i class="fab fa-instagram pr-3 text-light"></i></a>
+                                        <a href="#"><i class="fab fa-linkedin text-light"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-12 mt-4 mt-md-5"style="padding-left:40px; padding-right:40px;">
+        <h5 class="mb-4">Leave a reply</h5>
+        <form >
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="Website" placeholder="Website URL">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email Address">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="number" placeholder="Phone Number">
+                </div>
+                <div class="form-group col-md-12">
+                    <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+                </div>
+                <div class="col-md-12">
+                    <a class="btn btn-primary" href="#">Submit Now</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</section>
+<section class="bg-dark">
+
+    <div class="row">
+        <div class="col-12">
+            <div class="bg-dark text-center py-5 px-3">
+                <h2 class="text-white">Bạn đã sẵn sàng cho một doanh nghiệp tốt hơn và nhiều hơn nữa?</h2>
+                <h6 class="text-white mb-4">Bắt đầu với mục tiêu của bạn trong tâm trí và sau đó làm việc để phát triển kế hoạch.</h6>
+                <a href="/lien-he" class="btn btn-primary-square btn-square mx-0 mx-md-3 text-white mt-2">Let’s Get Started<i class="fa fa-angle-right pl-3"></i></a>
+            </div>
+        </div>
+    </div>
+</section>

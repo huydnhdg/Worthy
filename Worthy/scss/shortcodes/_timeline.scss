@@ -1,0 +1,139 @@
+/*****************************
+    timeline
+*****************************/
+#timeline {
+  position: relative;
+}
+#timeline .timeline-start,
+#timeline .timeline-end {
+  display: table;
+  font-size: 16px;
+  background: $primary;
+  padding: 15px 23px;
+  color: $white;
+  min-width: 5%;
+  text-align: center;
+  margin: 0 auto;
+}
+#timeline .conference-center-line {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  margin-left: -2px;
+  background: $primary;
+  z-index: -1;
+}
+#timeline .timeline-content {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.events-content {
+  position: relative;
+  overflow: hidden;
+  margin: 20px 0;
+}
+.events-content .content-left-container,
+.events-content .content-right-container {
+  max-width: 44%;
+  width: 100%;
+}
+.events-content .timeline-author {
+  display: block;
+  font-size: 32px;
+  line-height: 34px;
+  text-align: right;
+  color: $primary;
+}
+.events-content .content-left,
+.events-content .content-right {
+  position: relative;
+  width: auto;
+  border: 1px solid $gray-1;
+  background-color: $gray-1;
+  box-shadow: 0 1px 3px rgba(0,0,0,.03);
+  padding: 27px 25px;
+}
+.events-content p {
+  padding: 0;
+  position: relative;
+}
+.events-content p span.article-number {
+  position: absolute;
+  font-size: 44px;
+  top: 10px;
+  left: -60px;
+  color: $primary;
+}
+.events-content .content-left-container {
+  float: left;
+}
+.events-content .content-right-container {
+  float: right;
+}
+.events-content .content-left:before,
+.events-content .content-right:before{
+  position: absolute;
+  top: 20px;
+  font-size: 23px;
+  font-family: "FontAwesome";
+  color: $gray-1;
+}
+.events-content .content-left:before {
+  content: "\f0da";
+  right: -8px;
+}
+.events-content .content-right:before {
+  content: "\f0d9";
+  left: -8px;
+}
+.events-content .meta-date {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 62px;
+  height: 62px;
+  margin-left: -31px;
+  color: $white;
+  border-radius: 100%;
+  background: $primary;
+}
+.events-content .meta-date .date,
+.events-content .meta-date .month {
+  display: block;
+  text-align: center;
+}
+.events-content .meta-date .date {
+  font-size: 20px;
+  line-height: 36px;
+}
+.events-content .meta-date .month {
+  font-size: 16px;
+  line-height: 10px;
+}
+
+/*****************************
+  responsive
+*****************************/
+
+@media only screen and (max-width: 767px) {
+  .events-content .timeline-author{
+    font-size: 22px;
+    line-height: 24px;
+  }
+  .events-content .content-left,.events-content .content-right{
+        padding: 27px 15px;
+  } 
+  .events-content .meta-date .date{
+    font-size: 16px;
+    line-height: 30px;
+  }
+  .events-content .meta-date .month{
+    font-size: 14px;
+  }
+  .events-content .meta-date{
+    width: 50px;
+    height: 50px;
+  }
+}

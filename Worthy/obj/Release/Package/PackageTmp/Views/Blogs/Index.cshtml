@@ -1,0 +1,89 @@
+﻿@model PagedList.IPagedList<Worthy.Models.Post>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<Worthy.Models.Post> newlist = ViewBag.newslist;
+    IEnumerable<Worthy.Models.CategoryPost> newlist1 = ViewBag.listcate;
+}
+
+<style>
+    .pagination > li > a {
+      position: relative;
+        float: left;
+        padding: 16px 25px;
+        margin-left: -1px;
+        line-height: 1.428571429;
+        text-decoration: none;
+        border: 1px solid #ddd;
+
+
+    }
+
+      
+</style>
+<section class="header-inner header-inner-menu bg-overlay-black-50" style="background-image: url('images/header-inner/03.jpg');">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="header-inner-title text-center">
+                    <h1 class="text-white font-weight-normal">Tin tức</h1>
+                    <ol class="breadcrumb d-flex justify-content-center ml-auto">
+                        <li class="breadcrumb-item"><a class="text-dark" href="/"><i class="fas fa-home mr-1"></i>Trang chủ</a></li>
+                        <li class="breadcrumb-item active text-primary"><span>Tin tức</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=================================
+Header Inner -->
+<!--=================================
+Blog -->
+<section class="space-ptb">
+    <div class="container">
+        <div class="row justify-content-center mt-5 mt-md-0">
+
+            @foreach (var item in Model)
+            {<div class="col-lg-6">
+                    <div class="blog-post mb-4 mb-lg-5">
+                        <div class="blog-post-image">
+                            <a href="/tin-tuc/@item.Alt"><img class="img-fluid" src="@item.Thumbnail" alt=""></a>
+                        </div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-info">
+                                <div class="blog-post-author">
+                                    <a class="btn btn-light-square text-white">@item.CategoryPost.Category_Name</a>
+                                </div>
+                                <div class="blog-post-date">
+                                    <a>@item.Create_date</a>
+                                </div>
+                            </div>
+                            <div class="blog-post-details">
+                                <h5 class="blog-post-title">
+                                    <a href="/tin-tuc/@item.Alt">@item.Title</a>
+                                </h5>
+                                <p>@item.Description</p>
+                                <a href="/tin-tuc/@item.Alt" class="btn btn-primary-square btn-square">Read More<i class="fa fa-angle-right pl-3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+    <div class="row justify-content-center mt-4 mt-md-5">
+        <div class="col-lg-8 text-center">
+            <nav aria-label="Page navigation example">
+                <div class="pagination justify-content-center">
+                    @Html.PagedListPager(Model, page => Url.Action("Index",
+                                new { page }))
+
+                </div>
+            </nav>
+        </div>
+    </div>
+</section>

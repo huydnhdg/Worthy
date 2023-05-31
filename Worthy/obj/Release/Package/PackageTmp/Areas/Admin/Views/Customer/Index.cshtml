@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Worthy.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h1 class="card-title" style="font-weight:bold">Danh sách thông tin liên hệ của khách hàng</h1>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Họ tên khách hàng</th>
+                    <th>Số điện thoại</th>
+                    <th>Email</th>
+                    <th>Công ty</th>
+                    <th>Note</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td> @item.Customer_Name</td>
+
+                        <td>@item.Phone</td>
+                        <td>@item.Email</td>
+                        <td>@item.Company</td>
+                        <td>@item.Note</td>
+                        <td> @Html.ActionLink("Xem chi tiết", "Details", new { id = @item.Customer_ID })</td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

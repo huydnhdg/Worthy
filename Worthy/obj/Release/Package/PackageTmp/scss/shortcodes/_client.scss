@@ -1,0 +1,84 @@
+/*****************************
+  Client
+*****************************/
+
+.our-clients {
+    position: relative;
+    display: flex;
+    align-items: center;
+    .owl-stage {
+        display: flex;
+        height: 100%;
+    }
+    .item {
+        display: flex;
+        height: 100%;
+    }
+    .client-title {
+        flex: 0 0 16%;
+        h5 {
+            position: relative;
+            z-index: 9;
+            margin-bottom: 0;
+        }
+    }
+    .svg-item {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+    .brand-logo {
+        flex: 0 0 100%;
+        overflow: hidden;
+        padding-right: 30px;
+    }
+    .client-btn {
+        flex: 0 0 20%;
+    }
+}
+
+.bg-client-logo{
+    .owl-item{
+        .item{
+            img{
+             background: $white;
+             padding: 10px;
+             height: 50px;
+            }
+        }
+    }
+}
+
+/*****************************
+    responsive
+*****************************/
+
+@media (max-width: 1199px) {
+
+.our-clients-style-02 {
+    display: block;
+    padding: 0;
+    .client-title {
+        padding-left: 20px;
+        padding: 20px;
+        background: $primary;
+    }
+    .svg-item {
+        display: none;
+    }
+    .brand-logo {
+        margin: 40px 20px;
+    }
+    .client-btn {
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+
+
+}
+
+

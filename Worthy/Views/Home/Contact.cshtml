@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<!--=================================
+Header Inner -->
+<section class="header-inner header-inner-menu bg-overlay-black-50" style="background-image: url('images/header-inner/09.jpg');">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="header-inner-title text-center">
+                    <h1 class="text-white font-weight-normal">Liên hệ</h1>
+                    <ol class="breadcrumb d-flex justify-content-center ml-auto">
+                        <li class="breadcrumb-item"><a class="text-dark" href="/"><i class="fas fa-home mr-1"></i>Trang chủ</a></li>
+                        <li class="breadcrumb-item active text-primary"><span>Liên hệ</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=================================
+Header Inner -->
+<!--=================================
+Contat Form -->
+<section class="space-ptb">
+    <div class="container">
+        <div class="row justify-content-lg-around position-relative">
+            <div class="col-lg-6 col-md-7 pr-lg-5 mt-5 mt-md-0">
+                <div class="p-4 p-md-5 bg-white shadow">
+                    <h3>Hãy để lại thông thin cho chúng tôi?</h3>
+                    @using (Html.BeginForm("IndexConfirm", "Customers", FormMethod.Post, new { id = "formmethod" }))
+                    {
+
+
+                        <div class="row">
+                            <div class="form-group mb-3 col-lg-12">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Tên của bạn">
+                            </div>
+                        </div><div class="form-group mb-3">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Địa chỉ email">
+                        </div><div class="form-group mb-3">
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Số điện thoại">
+                        </div><div class="form-group mb-3">
+                            <input type="text" class="form-control" id="company" name="company" placeholder="Công ty">
+                        </div><div class="form-group mb-4">
+                            <textarea class="form-control" id="note" name="note" placeholder="Note" rows="5"></textarea>
+                        </div><div class="form-group mb-0">
+                            <button type="submit" class="btn btn-primary" id="btnsubmit" >Send Message<i class="fa fa-angle-right pl-3"></i></button>
+                        </div>
+                    }
+                    </div>
+            </div>
+            <div class="col-lg-6 col-md-5 mt-4 mt-md-0">
+                <div class="conatct-map mt-4 mt-lg-0">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.4763377985996!2d105.79604361570965!3d21.01361829366914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab58be26cab7%3A0x884c246a9e5e190e!2zOTEgUC4gVHJ1bmcgS2nMgW5oLCBUcnVuZyBIb8OgLCBD4bqndSBHaeG6pXksIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1671177024856!5m2!1svi!2s" width="600" height="630"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=================================
+Contat Form  -->
+<!--=================================
+Address -->
+<section class="space-pb">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-title text-center">
+                    <h2>Hãy liên hệ với chúng tôi!</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4 mb-md-0">
+                <div class="feature-info text-center shadow bg-white p-5">
+                    <div class="feature-info-icon">
+                        <i class="flaticon-pin"></i>
+                    </div>
+                    <h4 class="feature-info-title">Địa chỉ</h4>
+                    <div class="feature-info-content">
+                        <p class="mb-0">91 Trung Kính - Trung Hòa <br /> Cầu Giấy - Hà Nội</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0">
+                <div class="feature-info text-center shadow bg-white p-5">
+                    <div class="feature-info-icon">
+                        <i class="flaticon-phone"></i>
+                    </div>
+                    <h4 class="feature-info-title">Số điện thoại</h4>
+                    <div class="feature-info-content">
+                        <p class="mb-0">0986.113.058 </p>
+                        <p class="mb-0">0979.440.344</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-info text-center shadow bg-white p-5">
+                    <div class="feature-info-icon">
+                        <i class="flaticon-mail"></i>
+                    </div>
+                    <h4 class="feature-info-title">Email</h4>
+                    <div class="feature-info-content">
+                        <p class="mb-0">xuanhung@bluesea.vn</p>
+                        <p class="mb-0">linhhee2k@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=================================
+Address -->
+<script>
+        $(document).ready(function () {
+            $("#btnsubmit").click(function (e) {
+                //Serialize the form datas.
+                var valdata = $("#formmethod").serialize();
+                //to get alert popup
+
+                $.ajax({
+                    url: "/Customers/IndexConfirm",
+                    type: "POST",
+                    dataType: 'json',
+                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                    data: valdata
+                });
+            });
+        });
+</script>
